@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, DM_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./header";
+import Footer from "./footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cormorant_Garamond = Cormorant_Garamond({
   subsets: ["latin"],
-});
+  display:"swap"
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+export const dm_mono = DM_Mono({
+  weight: "300",
   subsets: ["latin"],
-});
+  display:"swap"
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +29,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${cormorant_Garamond.className} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="relative min-h-full flex flex-col">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
