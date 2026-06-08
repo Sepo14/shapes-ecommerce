@@ -1,6 +1,6 @@
-import LoginForm from "@/components/login";
-import { dm_mono } from "./layout";
+import { dm_mono } from "@/lib/fonts";
 import { FiArrowRight } from "react-icons/fi";
+import RegisterForm from "@/components/register";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
             Every object begins with a shape.
           </p>
           <a href="#collection"
-            className={`py-3 px-6 bg-(--color-black) text-white flex justify-center text-sm ${dm_mono.className} group uppercase w-fit gap-4 hover:bg-(--enfasis) transition`}>
+            className={`py-3 px-6 bg-(--color-dark) text-white flex justify-center text-sm ${dm_mono.className} group uppercase w-fit gap-4 hover:bg-(--enfasis) transition`}>
             Explore Collection <FiArrowRight className="text-lg group-hover:translate-x-1 transition" />
           </a>
         </div>
@@ -32,7 +32,7 @@ export default function Home() {
           <p className="text-2xl">Poner carrousel de items comprables</p>
         </div>
       </section>
-      <section className="mt-10 bg-(--color-black) flex justify-between">
+      <section className="mt-10 bg-(--color-dark) flex justify-between">
         <div className="flex flex-col text-white w-1/3 p-15 gap-5">
           <p className={`${dm_mono.className} text-(--enfasis) text-sm`}>01</p>
           <p className="text-2xl">Crafted with precision</p>
@@ -51,7 +51,7 @@ export default function Home() {
       </section>
       <section className="p-15 bg-(--enfasis)/50">
         <div className="flex flex-col justify-center items-center gap-3">
-          <LoginForm />
+          <RegisterForm />
         </div>
       </section>
     </main>

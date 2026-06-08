@@ -1,19 +1,9 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./header";
 import Footer from "./footer";
+import {cormorant_Garamond } from "@/lib/fonts";
 
-const cormorant_Garamond = Cormorant_Garamond({
-  subsets: ["latin"],
-  display:"swap"
-})
-
-export const dm_mono = DM_Mono({
-  weight: "300",
-  subsets: ["latin"],
-  display:"swap"
-})
 
 
 export const metadata: Metadata = {
