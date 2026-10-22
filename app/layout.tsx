@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./header";
 import Footer from "./footer";
-import {cormorant_Garamond } from "@/lib/fonts";
-
-
+import { cormorant_Garamond, dm_mono } from "@/lib/fonts";
+import { CartProvider } from "@/context/cart-context";
+import Cart from "@/components/cart";
+import { SessionProvider } from "next-auth/react";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,14 +19,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${cormorant_Garamond.className} h-full antialiased scroll-smooth`}
-    >
-      <body className="relative min-h-full flex flex-col">
-        <Header />
-        {children}
-        <Footer />
+    <html lang="en" className={`${cormorant_Garamond.className} h-full antialiased scroll-smooth scrollbar-none`}>
+      <body className="relative min-h-svh flex flex-col">
+        <SessionProvider>
+          <Toaster position="bottom-center" duration={2000} richColors toastOptions={{classNames:{toast:`${dm_mono.className} uppercase !font-bold !rounded-none`}}} />
+          <CartProvider>
+            <Header />
+            <Cart />
+            {children}
+            <Footer />
+          </CartProvider>
+        </SessionProvider>
       </body>
     </html>
   );

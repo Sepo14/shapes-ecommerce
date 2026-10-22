@@ -1,24 +1,40 @@
+import { auth } from "@/auth"
+import Link from "next/link"
+import LogoutButton from "@/components/logout-button"
+import { dm_mono } from "@/lib/fonts"
+import CartButton from "@/components/cart-button"
+export default async function Header() {
+    const session = await auth()
 
-
-export default function Header() {
     return (
-        <header className="sticky top-0 z-50 w-full bg-(--background) py-5 px-4 md:px-8 border-b border-gray-300">
-            <nav className="flex justify-between items-center">
-                <a href="#" className="text-3xl">
-                    SHAPE
-                </a>
-                <div className="flex items-center md:gap-1 gap-2">
-                    <a
-                        href="#"
-                        className=" px-2 md:px-4 py-2 rounded-sm transition"
-                    >
-                        Home
-                    </a>
-                    <a href="#" className="px-2 md:px-4 py-2 rounded-sm transition">
-                        Collections
-                    </a>
-                </div>
-            </nav>
-        </header>
+        <>
+            <header className="sticky top-0 z-50 w-full h-full bg-(--background) p-5 border-b border-gray-300">
+                <nav className="flex justify-between items-center">
+                    <Link href="/" className="text-3xl">
+                        SHAPE
+                    </Link>
+
+                    <div className="flex h-full items-stretch gap-2">
+
+                        {session?.user?.role === "ADMIN" &&
+                            <Link href="/admin" scroll={true}
+                                className={`py-3 px-6 flex justify-center items-center text-sm border border-(--enfasis) ${dm_mono.className} uppercase w-fit gap-4 hover:bg-(--enfasis) hover:text-white transition`}
+                            >
+                                admin panel
+                            </Link>
+                        }
+
+                        {session && <CartButton />}
+
+                        {session ? <LogoutButton /> :
+                            <a href="#login"
+                                className={`py-3 px-6 bg-(--color-dark) items-center text-white flex justify-center text-sm ${dm_mono.className} uppercase w-fit gap-4 hover:bg-(--enfasis)  transition`}>
+                                Login
+                            </a>
+                        }
+                    </div>
+                </nav>
+            </header>
+        </>
     )
 }

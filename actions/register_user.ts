@@ -1,39 +1,30 @@
 "use server"
 
-import { signIn } from "@/auth";
 import prisma from "@/lib/prisma";
-import { actionState } from "@/lib/types";
+import bcrypt from "bcryptjs";
+import { signIn } from "@/auth";
 
+export default async function RegisterUser(formData: FormData) {
 
-export default async function RegisterUser(prevState: actionState, formData: FormData): Promise<actionState> {
+    const name = formData.get("name")?.toString();
+    const email = formData.get("email")?.toString().trim();
+    const password = formData.get("password")?.toString();
 
-    try {
-        const name = formData.get("name")?.toString();
-        const email = formData.get("email")?.toString().trim();
-        const password = formData.get("password")?.toString();
-
-        if (!email || !password) {
-            return {
-                success: false,
-                error: "Email and Password must be filled."
-            }
-        }
-
-        await prisma.user.create({ data: { name, email, password } })
-
-
-        await signIn("credentials", { email, password, redirect: false })
-
-
-        return {
-            success: true,
-            message: "User created succesfuly"
-        }
-
-    } catch (err) {
-        console.error("ERROR:", err);
-
-        return { success: false, error: "Something went wrong." }
+    if (!email || !password) {
+        throw new Error("Email and Password must be filled.")
     }
 
+    const existingUser = await prisma.user.findUnique({
+        where: { email }
+    });
+
+    if (existingUser) {
+        throw new Error("email already on use")
+    }
+
+    const hashedpass = await bcrypt.hash(password, 10)
+
+    await prisma.user.create({ data: { name, email, password: hashedpass } })
+
+    await signIn("credentials", { email, password, redirect: false })
 } 
