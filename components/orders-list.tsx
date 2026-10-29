@@ -29,7 +29,7 @@ export default function OrderList({ orders }: { orders: OrderData[]; }) {
             </div>
             <p className="md:hidden text-center text-(--enfasis)">In smaller divices this page losses some functionality</p>
             <div className="scrollbar-none overflow-y-auto max-h-125">
-                <table className="table-auto border-collapse w-full">
+                {ordersArray.length > 0 ? <table className="table-auto border-collapse w-full">
                     <thead className="text-white">
                         <tr className="divide-x divide-white">
                             <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Order Nº</th>
@@ -42,7 +42,7 @@ export default function OrderList({ orders }: { orders: OrderData[]; }) {
                         </tr>
                     </thead>
                     <tbody className="bg-(--enfasis)/60 text-white">
-                        {ordersArray.length > 0 ? ordersArray.map((order) =>
+                        {ordersArray.map((order) =>
                             <tr key={order.id} className="divide-x divide-y divide-white/30 text-gray-100 text-center">
                                 <td className="p-1 font-light">{order.orderNumber}</td>
                                 <td className="p-1 font-light">{order.user?.name ?? "Deleted User"}</td>
@@ -68,9 +68,9 @@ export default function OrderList({ orders }: { orders: OrderData[]; }) {
                                 </td>
                                 <td className="p-1 font-light border-b-white/30 border-b">{order.createdAt.toLocaleDateString()}</td>
                             </tr>
-                        ) : "There are no orders on the database yet"}
+                        )}
                     </tbody>
-                </table>
+                </table>: <p>There are no orders on the database</p>}
             </div>
         </>
     )
