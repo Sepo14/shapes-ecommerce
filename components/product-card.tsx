@@ -11,16 +11,17 @@ export default function ProductCard({ product }: { product: ProductPriceString }
     const { addProduct } = useCart()
 
     function handleProduct() {
-        try { addProduct(product) 
+        try {
+            addProduct(product)
             toast.success('Product added')
-        }catch{
+        } catch {
             toast.error("Error adding product to cart")
         }
     }
 
     return (
         <>
-            <div className="bg-(--enfasis)/10 w-70 h-120 flex flex-col items-center justify-between group relative">
+            <div className="bg-(--enfasis)/10 w-70 h-120 flex flex-col items-center justify-between group relative min-w-60">
                 {product.tag && <h2 className={`absolute top-0 right-0 py-2 px-4 bg-(--enfasis) text-white text-sm ${dm_mono.className}`}>{product.tag}</h2>}
                 <div className="flex items-center h-full">
                     <div className="w-30 h-30 relative">
@@ -30,8 +31,7 @@ export default function ProductCard({ product }: { product: ProductPriceString }
                 </div>
                 <div className={`w-full relative`}>
                     {product.stock != 0 &&
-                        <div className="absolute flex justify-center w-full h-10 bg-black text-white 
-                                        group-hover:-translate-y-full transition-all duration-300 hover:bg-(--enfasis)">
+                        <div className="absolute flex justify-center w-full h-10 bg-black text-white translate-y-0 pointer-fine:translate-y-full pointer-fine:group-hover:-translate-y-full pointer-coarse:-translate-y-full transition-all duration-300 hover:bg-(--enfasis)">
                             <button
                                 onClick={() => handleProduct()}
                                 className={`${dm_mono.className} cursor-pointer w-full`}>ADD TO CART

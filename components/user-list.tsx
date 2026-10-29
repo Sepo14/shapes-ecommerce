@@ -13,16 +13,17 @@ export default function UserList({ users }: { users: UserData[]; }) {
                 <h2 className="text-2xl">User list</h2>
                 <h2 className="bg-black text-white p-3">Users: {users.length}</h2>
             </div>
+            <p className="md:hidden text-center text-(--enfasis) pb-5">In smaller divices this page losses some functionality</p>
             <div className="scrollbar-none overflow-y-auto max-h-125">
-                <table className="table-auto border-collapse w-full">
+                <table className="table-auto border-collapse w-full text-nowrap">
                     <thead className="text-white">
                         <tr className="divide-x divide-white">
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Name</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Email</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Orders</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Total Spent</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Rol</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Creation Date</th>
+                            <th className="font-light text-xl top-0 sticky p-1 bg-(--color-primary)">Name</th>
+                            <th className="font-light text-xl top-0 sticky p-1 bg-(--color-primary)">Email</th>
+                            <th className="font-light text-xl top-0 sticky p-1 bg-(--color-primary)">Orders</th>
+                            <th className="font-light text-xl top-0 sticky p-1 bg-(--color-primary)">Total Spent</th>
+                            <th className="font-light text-xl top-0 sticky p-1 bg-(--color-primary)">Rol</th>
+                            <th className="font-light text-xl top-0 sticky p-1 bg-(--color-primary)">Creation Date</th>
                         </tr>
                     </thead>
                     <tbody className="bg-(--enfasis)/60 text-white">

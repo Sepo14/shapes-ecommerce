@@ -13,7 +13,7 @@ export default function LogoutButton() {
         >
             <button
                 type="submit"
-                className={`py-3 px-6 bg-(--color-dark) text-white flex items-center justify-center text-sm ${dm_mono.className} cursor-pointer
+                className={`py-2 px-4 md:py-3 md:px-6 bg-(--color-dark) text-white flex items-center justify-center text-sm ${dm_mono.className} cursor-pointer
                  border border-(--color-dark) uppercase w-fit gap-4 hover:bg-(--enfasis) hover:border-(--enfasis) transition h-full`}
             >
                 Logout

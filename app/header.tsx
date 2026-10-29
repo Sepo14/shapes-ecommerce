@@ -18,9 +18,10 @@ export default async function Header() {
 
                         {session?.user?.role === "ADMIN" &&
                             <Link href="/admin" scroll={true}
-                                className={`py-3 px-6 flex justify-center items-center text-sm border border-(--enfasis) ${dm_mono.className} uppercase w-fit gap-4 hover:bg-(--enfasis) hover:text-white transition`}
+                                className={`px-2 sm:py-2 sm:px-4 md:py-3 md:px-6 flex justify-center items-center text-sm border border-(--enfasis) ${dm_mono.className} uppercase w-fit gap-4 hover:bg-(--enfasis) hover:text-white transition`}
                             >
-                                admin panel
+                                <p className="hidden md:block">admin panel</p>
+                                <p className="md:hidden">admin</p>
                             </Link>
                         }
 
@@ -28,7 +29,7 @@ export default async function Header() {
 
                         {session ? <LogoutButton /> :
                             <a href="#login"
-                                className={`py-3 px-6 bg-(--color-dark) items-center text-white flex justify-center text-sm ${dm_mono.className} uppercase w-fit gap-4 hover:bg-(--enfasis)  transition`}>
+                                className={`py-2 px-4 md:py-3 md:px-6 bg-(--color-dark) items-center text-white flex justify-center text-sm ${dm_mono.className} uppercase w-fit gap-4 hover:bg-(--enfasis)  transition`}>
                                 Login
                             </a>
                         }

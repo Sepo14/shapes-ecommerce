@@ -35,7 +35,7 @@ export default function Cart() {
     }
 
     return (
-        <aside className={`fixed top-0 mt-24 right-0 h-screen w-80 bg-(--background) border-l-black border-l z-50 flex flex-col justify-between pb-20 transition-all duration-300 ${openCart ? "translate-x-0" : "translate-x-full"}`}>
+        <aside className={`fixed top-0 mt-19.75 sm:mt-22.25 md:mt-24.25 right-0 h-screen w-80 bg-(--background) border-l-black border-l z-50 flex flex-col justify-between pb-20 transition-all duration-300 ${openCart ? "translate-x-0" : "translate-x-full"}`}>
             <div>
                 <div className="w-full flex justify-between items-center border-b border-gray-400/50">
                     <h2 className={`${dm_mono.className} justify-self-center text-center w-full uppercase`}>Shopping Cart</h2>

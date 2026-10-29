@@ -13,7 +13,7 @@ export default function CartButton() {
             <button
                 type="button"
                 onClick={() => cart.setOpenCart(!cart.openCart)}
-                className={`py-3 px-6 bg-(--background) flex items-center text-sm border-(--enfasis) ${dm_mono.className} border border-(--color-dark) uppercase w-fit gap-2 hover:bg-(--enfasis) cursor-pointer hover:text-white transition
+                className={`px-2 sm:py-2 sm:px-4 md:py-3 md:px-6 bg-(--background) flex items-center text-sm border-(--enfasis) ${dm_mono.className} border border-(--color-dark) uppercase w-fit gap-2 hover:bg-(--enfasis) cursor-pointer hover:text-white transition
                 ${cart.items.length>0 ? "" : ""}`}
             >
                 Cart

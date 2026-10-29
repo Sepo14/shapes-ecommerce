@@ -14,10 +14,10 @@ export default async function UserPanel() {
 
     return (
         <>
-            <div className="w-full flex justify-between min-h-70">
-                <div className="w-1/3 pl-15 p-5 flex flex-col items-start">
+            <div className="w-full flex flex-col justify-between min-h-70 lg:flex-row gap-5 p-5 md:p-15">
+                <div className=" flex flex-col items-start">
                     <h2 className={`text-4xl border-b border-gray-300 mb-2`}>Your <em className="text-(--enfasis)">Account</em></h2>
-                    <div className="gap-1 flex flex-col">
+                    <div className="gap-1 flex flex-wrap lg:flex-col">
                         <UsernameChange name={session?.user.name ?? ""} id={session?.user.id ?? ""} />
                         <EmailChange email={session?.user.email ?? ""} id={session?.user.id ?? ""} />
                         <PasswordChange id={session?.user.id ?? ""} />

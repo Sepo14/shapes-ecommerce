@@ -13,17 +13,18 @@ export default function ProductList(
                 <h2 className="text-2xl">Product list</h2>
                 <h2 className="bg-black text-white p-3">Products: {products.length}</h2>
             </div>
+            <p className="md:hidden text-center text-(--enfasis) pb-5">In smaller divices this page losses some functionality</p>
             <div className="overflow-y-auto scrollbar-none max-h-125">
-                <table className="table-auto border-collapse w-full">
+                <table className="table-auto border-collapse w-full text-nowrap">
                     <thead className="text-white">
                         <tr className="divide-x divide-white">
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Name</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Description</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Price</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Cat/Tag</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Stock</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Image</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Actions</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Name</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Description</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Price</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Cat/Tag</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Stock</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Image</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Actions</th>
                         </tr>
                     </thead>
                     <tbody className="bg-(--enfasis)/60 text-white">

@@ -13,6 +13,7 @@ export default async function EditProduct(formdata: FormData) {
     const stock = Number.parseInt(formdata.get("stock")?.toString() ?? "")
     const image = formdata.get("image")
     const tagRaw = formdata.get("tag")?.toString()
+    const tag = tagRaw === "" ? null : tagRaw as Tag | undefined
     const categoryRaw = formdata.get("category")?.toString()
     const id = formdata.get("id")?.toString()
 
@@ -48,7 +49,7 @@ export default async function EditProduct(formdata: FormData) {
             price,
             stock,
             category: categoryRaw as Category,
-            tag: tagRaw as Tag,
+            tag,
             //inclulle la imagen solamente si existe
             ...(imageUrl && { image: imageUrl })
         }

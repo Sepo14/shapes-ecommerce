@@ -47,11 +47,11 @@ export default function UsernameChange({ name, id }: { name: string, id: string 
             <input type="hidden" name="id" value={id} />
 
             <button type="button" value={""} onClick={() => setAble(!able)} className={`bg-black hover:bg-(--enfasis) transition ${able ? "block" : "hidden"}`}>
-                <VscSync size={30} color="white" className=" transition cursor-pointer h-full p-3 w-full hover:rotate-45" />
+                <VscSync size={30} color="white" className=" transition cursor-pointer h-full p-3 w-full hover:rotate-45 min-w-13" />
             </button>
 
             <button type="submit" className={`bg-(--enfasis) hover:bg-(--enfasis) ${able ? "hidden" : "block"}`}>
-                <VscSync size={30} color="white" className=" transition cursor-pointer h-full rotate-45 p-3 w-full animate-spin" />
+                <VscSync size={30} color="white" className=" transition cursor-pointer h-full rotate-45 p-3 w-full animate-spin min-w-13" />
             </button>
         </form>
     )

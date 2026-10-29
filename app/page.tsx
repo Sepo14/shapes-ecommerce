@@ -21,9 +21,9 @@ export default async function Home() {
   return (
     <main className="flex flex-col justify-center -mt-20">
       <section className="flex w-full justify-between h-svh ">
-        <div className="flex flex-col w-1/2 justify-end gap-10 p-15">
+        <div className="flex flex-col justify-end gap-10 p-5 md:p-15 w-full lg:w-1/2">
           <p className={`${dm_mono.className} text-(--enfasis) text-xs tracking-[2px]`}>NEW COLLECTION · 2026</p>
-          <h1 className="text-8xl">Objects <br /> of pure <br /> <em className="text-(--enfasis)">Shape</em></h1>
+          <h1 className="text-7xl md:text-8xl">Objects <br /> of pure <br /> <em className="text-(--enfasis)">Shape</em></h1>
           <p className="text-lg text-gray-500">
             Geometry is the language of modern design.
             <br />
@@ -34,7 +34,7 @@ export default async function Home() {
             Explore Collection <FiArrowRight className="text-lg group-hover:translate-x-1 transition" />
           </a>
         </div>
-        <div className="flex flex-col w-1/2 bg-(--color-primary) justify-center items-center relative overflow-hidden">
+        <div className="flex-col w-1/2 bg-(--color-primary) justify-center items-center relative overflow-hidden hidden lg:flex">
           {/* poner carrusel de objetos */}
           {displayHero && <ProductHero product={displayHero} />}
         </div>
@@ -42,24 +42,24 @@ export default async function Home() {
       </section>
       {/* carrousel de textos debajo del main */}
       <CarouselText />
-      <section className="pt-25 p-15" id="collection">
+      <section className="pt-25 p-5 md:p-15" id="collection">
         <h2 className="text-4xl border-b border-gray-300 pb-5">
           All of our <em className="text-(--enfasis)">Collection</em>
         </h2>
         <CollectionSection productData={productsProcessed} />
       </section>
-      <section className="mt-10 bg-(--color-dark) flex justify-between divide-x divide-white/10">
-        <div className="flex flex-col text-white w-1/3 p-15 gap-5">
+      <section className="mt-10 bg-(--color-dark) flex flex-col md:flex-row justify-between divide-y md:divide-x divide-white/10 ">
+        <div className="flex flex-col text-white md:w-1/3 p-5 md:p-15 gap-5">
           <p className={`${dm_mono.className} text-(--enfasis) text-sm`}>01</p>
           <p className="text-2xl">Crafted with precision</p>
           <p className="text-gray-400">Raw geometry transformed into collectible objects.</p>
         </div>
-        <div className="flex flex-col text-white w-1/3 p-15 gap-5">
+        <div className="flex flex-col text-white md:w-1/3 p-5 md:p-15 gap-5">
           <p className={`${dm_mono.className} text-(--enfasis) text-sm`}>02</p>
           <p className="text-2xl">Pure materials shaped into architectural forms</p>
           <p className="text-gray-400">Minimal objects designed to bring structure and presence into everyday environments.</p>
         </div>
-        <div className="flex flex-col text-white w-1/3 p-15 gap-5">
+        <div className="flex flex-col text-white md:w-1/3 p-5 md:p-15 gap-5">
           <p className={`${dm_mono.className} text-(--enfasis) text-sm`}>03</p>
           <p className="text-2xl">Geometry treated as a visual language</p>
           <p className="text-gray-400">Every angle, curve, and proportion considered with intention.</p>

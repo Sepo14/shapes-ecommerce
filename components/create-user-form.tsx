@@ -37,9 +37,9 @@ export default function CreateUserForm() {
 
             <div className={`transition-all duration-500 ease-in-out ${open ? "max-h-100" : "max-h-0"}`}>
                 <form action={handleAction} className="flex flex-col items-start gap-2 mt-2">
-                    <input type="text" placeholder="Name (optional)" name="name" className="bg-white border hover:border-(--enfasis) h-fit transition outline-none w-100" />
-                    <input type="email" placeholder="Email" name="email" className="bg-white border hover:border-(--enfasis) h-fit transition outline-none w-100" required />
-                    <input type="password" placeholder="Password" name="password" className="bg-white border hover:border-(--enfasis) h-fit transition outline-none w-100" required />
+                    <input type="text" placeholder="Name (optional)" name="name" className="bg-white border hover:border-(--enfasis) transition outline-none w-full max-w-100" />
+                    <input type="email" placeholder="Email" name="email" className="bg-white border hover:border-(--enfasis) transition outline-none w-full max-w-100" required />
+                    <input type="password" placeholder="Password" name="password" className="bg-white border hover:border-(--enfasis) transition outline-none w-full max-w-100" required />
                     <label className="flex items-center gap-2 cursor-pointer">
                         <div className="relative flex gap-2 items-center">
                             <input type="checkbox" name="rol" value={"ADMIN"} className="peer sr-only" />

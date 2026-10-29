@@ -14,11 +14,6 @@ export default function OrderList({ orders }: { orders: OrderData[]; }) {
                     <h2 className="text-2xl">Order list</h2>
                     <div className="flex gap-2">
                         <button className={`py-2 px-4 text-(--enfasis) cursor-pointer border flex justify-center text-sm ${dm_mono.className} hover:bg-(--enfasis) hover:text-white transition`}
-                            onClick={() => setOrdersArray([...orders].sort((a, b) => (a.user?.name ?? "").localeCompare(b.user?.name ?? "")))}
-                        >
-                            USER
-                        </button>
-                        <button className={`py-2 px-4 text-(--enfasis) cursor-pointer border flex justify-center text-sm ${dm_mono.className} hover:bg-(--enfasis) hover:text-white transition`}
                             onClick={() => setOrdersArray([...orders].sort((a, b) => b.products.reduce((sum, product) => sum + parseFloat(product.cost.toString()) * product.quantity, 0) - a.products.reduce((sum, product) => sum + parseFloat(product.cost.toString()) * product.quantity, 0)))}
                         >
                             COST
@@ -32,17 +27,18 @@ export default function OrderList({ orders }: { orders: OrderData[]; }) {
                 </div>
                 <h2 className="bg-black text-white p-3">Orders: {orders.length}</h2>
             </div>
+            <p className="md:hidden text-center text-(--enfasis)">In smaller divices this page losses some functionality</p>
             <div className="scrollbar-none overflow-y-auto max-h-125">
                 <table className="table-auto border-collapse w-full">
                     <thead className="text-white">
                         <tr className="divide-x divide-white">
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Order Nº</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">User</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Items</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Cost / Amount</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Total Items</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Total Cost</th>
-                            <th className="font-light text-xl top-0 sticky bg-(--color-primary)">Buy Date</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Order Nº</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">User</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Items</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Cost / Amount</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Total Items</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Total Cost</th>
+                            <th className="font-light text-xl top-0 p-1 sticky bg-(--color-primary)">Buy Date</th>
                         </tr>
                     </thead>
                     <tbody className="bg-(--enfasis)/60 text-white">
